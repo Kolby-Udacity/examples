@@ -11,10 +11,11 @@ export default function MoviePage({ movie }: { movie: Movie }) {
 
 // This does not work - request is made in getStaticPaths
 export async function getStaticPaths() {
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
-    const { server } = await import('../../mocks/node')
-    server.listen()
-  }
+  // uncomment this and it works
+  // if (process.env.NEXT_RUNTIME === 'nodejs') {
+  //   const { server } = await import('../../mocks/node')
+  //   server.listen()
+  // }
 
   const movies = await fetchMovies()
 
